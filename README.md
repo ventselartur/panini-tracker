@@ -1,6 +1,8 @@
 # panini-tracker
 Track your collection and compare with others for exchange
 
+Fork the repo to start tracking your collection.
+
 ```cmd
 usage: panini_tracker.py [-h] (-a ADD | -m | -o | -s | -c COMPARE | -d)
 
