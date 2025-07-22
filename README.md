@@ -1,6 +1,7 @@
 # panini-tracker
 Track your collection and compare with others for exchange
 
+```cmd
 usage: panini_tracker.py [-h] (-a ADD | -m | -o | -s | -c COMPARE)
 
 Panini Album Progress Tracker
@@ -12,3 +13,4 @@ options:
   -o, --owned           Print owned sticker numbers
   -s, --stats           Print collection stats
   -c, --compare COMPARE URL to another CSV file for exchange comparison
+```
