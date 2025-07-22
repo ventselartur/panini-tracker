@@ -137,6 +137,18 @@ def compare_collections(other_url: str, collection: Dict[int, int]) -> None:
     for sticker in i_give:
         print(f"- Sticker #{sticker} (you have {my_duplicates[sticker]} extra)")
 
+def print_duplicates(collection: Dict[int, int]) -> None:
+    """Print duplicate stickers and their quantities."""
+    duplicates = {k: v for k, v in collection.items() if v > 1}
+    
+    if not duplicates:
+        print("You don't have any duplicate stickers.")
+        return
+    
+    print(f"Duplicate stickers ({len(duplicates)}):")
+    for sticker, amount in sorted(duplicates.items()):
+        print(f"- Sticker #{sticker}: {amount - 1} extra")
+
 def main():
     parser = argparse.ArgumentParser(description="Panini Album Progress Tracker")
     group = parser.add_mutually_exclusive_group(required=True)
@@ -145,6 +157,7 @@ def main():
     group.add_argument("-o", "--owned", action="store_true", help="Print owned sticker numbers")
     group.add_argument("-s", "--stats", action="store_true", help="Print collection stats")
     group.add_argument("-c", "--compare", help="URL to another CSV file for exchange comparison")
+    group.add_argument("-d", "--duplicates", action="store_true", help="Print duplicate stickers and their quantities")
     
     args = parser.parse_args()
     collection = read_collection()
@@ -176,6 +189,9 @@ def main():
     
     elif args.compare:
         compare_collections(args.compare, collection)
+        
+    elif args.duplicates:
+        print_duplicates(collection)
 
 if __name__ == "__main__":
     main()
