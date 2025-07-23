@@ -1,7 +1,7 @@
 # panini-tracker
 Track your collection and compare with others for exchange
 
-Fork the repo to start tracking your collection.
+Fork the repo to start tracking your collection. I've started to populate the `collection.csv` file, you need to make it empty in your fork (leave only headers).
 
 ```cmd
 usage: panini_tracker.py [-h] (-a ADD | -m | -o | -s | -c COMPARE | -d)
